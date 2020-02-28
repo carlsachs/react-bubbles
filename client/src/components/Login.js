@@ -23,7 +23,7 @@ const Login = (props) => {
         .then(res => {
             console.log(res);
             localStorage.setItem('token', res.data.payload);
-            props.history.push('/creatures');
+            props.history.push('/bubbles');
         })
         .catch(err => console.log(`Login.js axiosWithAuth error:`, err.response ))
   }
@@ -31,7 +31,7 @@ const Login = (props) => {
   return (
     <>
       <h1>Welcome to the Bubble App!</h1>
-      <form className="forms-style" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <input 
             type="text"
             name="username"
@@ -50,7 +50,7 @@ const Login = (props) => {
             onChange={handleChange}
             className="input"
         />
-        <button className="start">Start</button>
+        <button>Login</button>
       </form>
     </>
   );
