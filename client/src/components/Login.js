@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { axiosWithAuth } from "../utils/axiosWithAuth.js";
 
-const Login = () => {
+const Login = (props) => {
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the BubblePage route
   const [ login, setLogin ] = useState({
@@ -30,7 +31,27 @@ const Login = () => {
   return (
     <>
       <h1>Welcome to the Bubble App!</h1>
-      <p>Build a login page here</p>
+      <form className="forms-style" onSubmit={handleSubmit}>
+        <input 
+            type="text"
+            name="username"
+            label="username"
+            placeholder="username"
+            value={props.username}
+            onChange={handleChange}
+            className="input"
+        />
+        <input 
+            type="text"
+            name="password"
+            label="password"
+            placeholder="password"
+            value={props.password}
+            onChange={handleChange}
+            className="input"
+        />
+        <button className="start">Start</button>
+      </form>
     </>
   );
 };
